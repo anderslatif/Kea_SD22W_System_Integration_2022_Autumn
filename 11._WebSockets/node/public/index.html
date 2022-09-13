@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io (Express)</title>
+</head>
+<body>
+    <h3>Type your name below</h3>
+    <input placeholder="Name">
+    <button>Submit name</button>
+
+    <br><br><br><br>
+    <button onclick="sendPing()">Ping</button>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        function sendPing() {
+            socket.emit("ping", "Secret message");
+        }
+
+        socket.on("pong", (secretMessage) => {
+            console.log("Pong", secretMessage);
+        });
+    </script>
+</body>
+</html>

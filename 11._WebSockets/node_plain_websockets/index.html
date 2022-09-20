@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="buttonClick()">Click</button>
+
+    <script>
+        // const ws = new WebSocket('ws://localhost:8080');
+        const ws = new WebSocket('ws://6.tcp.eu.ngrok.io:17392');
+        ws.onopen = () => {
+            console.log('connected');
+            ws.send('Hello from client');
+        }
+        ws.onmessage = (event) => {
+            console.log(event.data);
+        }
+
+        function buttonClick() {
+            ws.send('Button clicked');
+        }
+    </script>    
+</body>
+</html>

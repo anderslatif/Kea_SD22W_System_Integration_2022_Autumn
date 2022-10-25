@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Upload</title>
+</head>
+<body>
+    <form method="POST" action="http://127.0.0.1:8000/basicform">
+        <input name="username" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <button type="submit">Submit a basic form</button>
+    </form>
+
+    <br><br><br><br>
+    <br><br><br><br>
+
+    <form method="POST" action="http://127.0.0.1:8000/fileupload" enctype="multipart/form-data">
+        <input name="file" type="file" placeholder="file">
+        <button type="submit">Submit a file upload</button>
+    </form>
+
+</body>
+</html>

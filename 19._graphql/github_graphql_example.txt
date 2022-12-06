@@ -1,0 +1,41 @@
+# In query variables: 
+{
+  "myUser": "node"
+}
+
+# The query
+query ($myUser: String!) { 
+	user (login: $myUser) {
+		followers (first:10) {
+		  edges {
+		    node {
+		      ...UserFragment
+          name
+		    }
+		  }
+		}
+	}
+}
+
+# Defining a fragment that can be reused
+fragment UserFragment on User {
+  websiteUrl
+  isHireable
+}
+
+
+# Example with search
+{
+  search(first: 10, type: REPOSITORY, query: "node") {
+    edges {
+      node {
+        ...on Repository {
+          name
+          owner {
+          	id
+          }
+        }
+      }
+    } 
+  }
+}

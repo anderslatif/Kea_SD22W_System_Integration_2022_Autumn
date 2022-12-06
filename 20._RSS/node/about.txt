@@ -1,0 +1,2 @@
+A good example of how you can programatically create a feed. 
+https://www.devextent.com/xml-rss-feed-nodejs/
